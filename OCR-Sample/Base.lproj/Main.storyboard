@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="CHI SIM" id="35v-ra-ffa"/>
+                                    <tabBarItem systemItem="more" id="35v-ra-ffa"/>
                                     <tabBarItem tag="1" title="CHI TRA" id="IzJ-5R-few"/>
                                     <tabBarItem tag="2" title="ENG" id="EmW-XE-CWM"/>
                                 </items>
@@ -29,24 +29,31 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjV-LB-tbB">
                                 <rect key="frame" x="0.0" y="49" width="320" height="320"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="VRG-ur-aTo"/>
                                     <constraint firstAttribute="height" constant="320" id="kcE-uh-alD"/>
                                 </constraints>
                                 <connections>
                                     <action selector="cameraButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wuS-IZ-ezN"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chi_menu_001" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="20160413_155631" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
                                 <rect key="frame" x="0.0" y="49" width="320" height="320"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="HcR-M1-32i"/>
                                     <constraint firstAttribute="height" constant="320" id="Woi-F5-UhL"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bC8-IW-FHE">
+                                <rect key="frame" x="142" y="190" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.038455112941581326" blue="0.63765802866443777" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7SS-De-EgM">
                                 <rect key="frame" x="0.0" y="369" width="320" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="ptk-ZX-pI6"/>
+                                    <constraint firstAttribute="width" constant="320" id="axh-vs-7iq"/>
+                                    <constraint firstAttribute="height" constant="150" id="zBs-qD-eVG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -59,39 +66,28 @@
                                     <tabBarItem tag="1" title="領域検出" id="H5b-zL-I1o"/>
                                 </items>
                             </tabBar>
-                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bC8-IW-FHE">
-                                <rect key="frame" x="142" y="190" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.038455112941581326" blue="0.63765802866443777" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vtd-Om-xLT" secondAttribute="bottom" id="0JW-Om-C0k"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" constant="49" id="46b-uu-GVM"/>
                             <constraint firstItem="QjV-LB-tbB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="9Nb-AB-HEB"/>
                             <constraint firstItem="QjV-LB-tbB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="AIi-Jk-qds"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q9Y-F1-kgE" secondAttribute="trailing" constant="-16" id="GCJ-ga-OG5"/>
                             <constraint firstItem="bC8-IW-FHE" firstAttribute="centerY" secondItem="QjV-LB-tbB" secondAttribute="centerY" id="IHJ-7r-K7u"/>
                             <constraint firstItem="bC8-IW-FHE" firstAttribute="centerX" secondItem="QjV-LB-tbB" secondAttribute="centerX" id="OdD-ia-jdG"/>
-                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Ofi-z2-mlc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QjV-LB-tbB" secondAttribute="trailing" constant="-16" id="PJp-vZ-L6Z"/>
                             <constraint firstItem="Vtd-Om-xLT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Siz-Sb-6h1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2PI-uo-4Ce" secondAttribute="trailing" constant="-16" id="XC4-tg-W02"/>
                             <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="29" id="ZyE-hC-CnT"/>
                             <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="a5O-Ru-gIg"/>
                             <constraint firstItem="2PI-uo-4Ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="c4s-SV-RQ7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" constant="49" id="eNs-jh-G9c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Vtd-Om-xLT" secondAttribute="trailing" constant="-16" id="fin-aX-9Wi"/>
                             <constraint firstItem="q9Y-F1-kgE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="jvL-d4-a9s"/>
-                            <constraint firstItem="QjV-LB-tbB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="noI-CK-ItX"/>
+                            <constraint firstItem="7SS-De-EgM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="349" id="n4k-WI-7Py"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7SS-De-EgM" secondAttribute="trailing" constant="-16" id="pIa-ot-s9L"/>
                             <constraint firstItem="q9Y-F1-kgE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="tb0-az-GdS"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Ofi-z2-mlc"/>
-                                <exclude reference="noI-CK-ItX"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -109,6 +105,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chi_menu_001" width="250" height="333"/>
+        <image name="20160413_155631" width="400" height="283"/>
     </resources>
 </document>
