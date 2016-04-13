@@ -9,8 +9,10 @@
 #import "MainViewController.h"
 #import <TesseractOCR/TesseractOCR.h>
 
-static NSString *const kG8LanguagesEnglish = @"eng";
-static NSString *const kG8LanguagesJapanese = @"jpn";
+static NSString *const kG8LanguagesKeyChi_sim = @"chi_sim";
+static NSString *const kG8LanguagesKeyChi_tra = @"chi_tra";
+static NSString *const kG8LanguagesKeyEnglish = @"eng";
+static NSString *const kG8LanguagesKeyJapanese = @"jpn";
 
 @interface MainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITabBarDelegate>
 
@@ -43,7 +45,11 @@ static NSString *const kG8LanguagesJapanese = @"jpn";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tabBar.delegate = self;
+    self.languagesTabBar.delegate = self;
+    self.languagesTabBar.tag = 1;
+    
+    self.OCRTabBar.delegate = self;
+    self.OCRTabBar.tag = 2;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -106,7 +112,24 @@ static NSString *const kG8LanguagesJapanese = @"jpn";
     [self.indicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:kG8LanguagesEnglish];
+        G8Languages languages = self.languagesTabBar.selectedItem.tag;
+        NSString *languagesKey;
+        switch (languages) {
+            case G8LanguagesChi_sim:
+                languagesKey = kG8LanguagesKeyChi_sim;
+                break;
+            case G8LanguagesChi_tra:
+                languagesKey = kG8LanguagesKeyChi_tra;
+                break;
+            case G8LanguagesEnglish:
+                languagesKey = kG8LanguagesKeyEnglish;
+                break;
+            case G8LanguagesJapanese:
+                languagesKey = kG8LanguagesKeyJapanese;
+                break;
+        }
+        
+        G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:languagesKey];
         tesseract.image = self.imaegView.image;
         [tesseract recognize];
         dispatch_async(dispatch_get_main_queue(), ^{
