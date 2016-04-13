@@ -10,4 +10,7 @@
 
 @interface MainViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView *imaegView;
+@property (nonatomic, weak) IBOutlet UITextView *textView;
+
 @end

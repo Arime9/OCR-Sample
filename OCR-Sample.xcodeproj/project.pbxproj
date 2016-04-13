@@ -103,9 +103,9 @@
 			children = (
 				2699D0AD1CBDF13800C86CD3 /* AppDelegate.h */,
 				2699D0AE1CBDF13800C86CD3 /* AppDelegate.m */,
+				2699D0B31CBDF13800C86CD3 /* Main.storyboard */,
 				2699D0B01CBDF13800C86CD3 /* MainViewController.h */,
 				2699D0B11CBDF13800C86CD3 /* MainViewController.m */,
-				2699D0B31CBDF13800C86CD3 /* Main.storyboard */,
 				2699D0B61CBDF13800C86CD3 /* Assets.xcassets */,
 				2699D0B81CBDF13800C86CD3 /* LaunchScreen.storyboard */,
 				2699D0BB1CBDF13800C86CD3 /* Info.plist */,
