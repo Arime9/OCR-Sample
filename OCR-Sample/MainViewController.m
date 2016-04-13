@@ -99,7 +99,7 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
     self.imaegView.image = editedImage;
     self.textView.text = nil;
     [self dismissViewControllerAnimated:YES completion:^{
-        // TODO: a
+        [self recognize];
     }];
 }
 
@@ -111,7 +111,10 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
 #pragma mark <UITabBarDelegate>
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    // TODO: a
+    [self recognize];
+}
+
+- (void)recognize {
     [self.indicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
@@ -135,6 +138,7 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
         G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:languagesKey];
         tesseract.image = self.imaegView.image;
         [tesseract recognize];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             self.textView.text = tesseract.recognizedText;
             [self.indicator stopAnimating];
