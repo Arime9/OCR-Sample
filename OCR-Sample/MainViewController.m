@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  OCR-Sample
 //
 //  Created by Arai on 2016/04/13.
 //  Copyright © 2016年 masato_arai. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (instancetype)init {
     self = [super init];
