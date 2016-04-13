@@ -12,5 +12,6 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *imaegView;
 @property (nonatomic, weak) IBOutlet UITextView *textView;
+@property (nonatomic, weak) IBOutlet UITabBar *tabBar;
 
 @end

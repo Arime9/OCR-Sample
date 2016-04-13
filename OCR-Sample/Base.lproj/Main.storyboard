@@ -22,31 +22,43 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="2PI-uo-4Ce" secondAttribute="height" multiplier="3:2" id="BDS-fd-Mdx"/>
+                                    <constraint firstAttribute="width" secondItem="2PI-uo-4Ce" secondAttribute="height" multiplier="3:2" id="MCw-L4-SnH"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7SS-De-EgM">
-                                <rect key="frame" x="0.0" y="400" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="400" width="600" height="151"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="7SS-De-EgM" secondAttribute="height" multiplier="3:1" id="3ak-df-nK8"/>
+                                    <constraint firstAttribute="width" secondItem="7SS-De-EgM" secondAttribute="height" multiplier="600:151" id="8z3-Gk-4b4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vtd-Om-xLT">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="mostViewed" id="YR9-HA-Xav"/>
+                                    <tabBarItem systemItem="more" id="H5b-zL-I1o"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4Ur-9v-Jzh"/>
-                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="ACM-1l-8vq"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" id="V0p-97-XHq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2PI-uo-4Ce" secondAttribute="trailing" constant="-20" id="Z8O-Vh-pRW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7SS-De-EgM" secondAttribute="trailing" constant="-20" id="ahV-HP-vk6"/>
-                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="pXH-p7-DaW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vtd-Om-xLT" secondAttribute="bottom" id="3n1-9U-DlH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7SS-De-EgM" secondAttribute="trailing" constant="-20" id="CcH-w7-n16"/>
+                            <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="OdY-gk-jnF"/>
+                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Y8c-fR-s8S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vtd-Om-xLT" secondAttribute="trailing" constant="-20" id="jNS-XY-zBp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" constant="49" id="m0A-le-diO"/>
+                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="s90-aV-62w"/>
+                            <constraint firstItem="Vtd-Om-xLT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wyi-sH-Ljs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2PI-uo-4Ce" secondAttribute="trailing" constant="-20" id="xiO-5H-WC5"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imaegView" destination="2PI-uo-4Ce" id="SEL-qu-cAi"/>
+                        <outlet property="tabBar" destination="Vtd-Om-xLT" id="MXP-jL-TAq"/>
                         <outlet property="textView" destination="7SS-De-EgM" id="Bp8-Xd-pjr"/>
                     </connections>
                 </viewController>
