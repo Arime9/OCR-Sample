@@ -39,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tabBar.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,7 +92,7 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark

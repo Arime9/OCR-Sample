@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -16,58 +14,60 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjV-LB-tbB">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="QjV-LB-tbB" secondAttribute="height" multiplier="3:2" id="gra-SG-j1k"/>
+                                    <constraint firstAttribute="height" constant="320" id="kcE-uh-alD"/>
                                 </constraints>
                                 <connections>
                                     <action selector="cameraButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wuS-IZ-ezN"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2PI-uo-4Ce" secondAttribute="height" multiplier="3:2" id="MCw-L4-SnH"/>
-                                </constraints>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7SS-De-EgM">
-                                <rect key="frame" x="0.0" y="400" width="600" height="151"/>
+                                <rect key="frame" x="0.0" y="320" width="320" height="199"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="7SS-De-EgM" secondAttribute="height" multiplier="600:151" id="8z3-Gk-4b4"/>
+                                    <constraint firstAttribute="height" constant="199" id="ptk-ZX-pI6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vtd-Om-xLT">
-                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem systemItem="mostViewed" id="YR9-HA-Xav"/>
                                     <tabBarItem systemItem="more" id="H5b-zL-I1o"/>
                                 </items>
                             </tabBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="Woi-F5-UhL"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vtd-Om-xLT" secondAttribute="bottom" id="3n1-9U-DlH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7SS-De-EgM" secondAttribute="trailing" constant="-20" id="CcH-w7-n16"/>
-                            <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="OdY-gk-jnF"/>
-                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Y8c-fR-s8S"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vtd-Om-xLT" secondAttribute="trailing" constant="-20" id="jNS-XY-zBp"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" constant="49" id="m0A-le-diO"/>
-                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="s90-aV-62w"/>
-                            <constraint firstItem="QjV-LB-tbB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="uzL-6c-7c8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QjV-LB-tbB" secondAttribute="trailing" constant="-20" id="vED-av-p6V"/>
-                            <constraint firstItem="Vtd-Om-xLT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wyi-sH-Ljs"/>
-                            <constraint firstItem="QjV-LB-tbB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="xHe-Cu-JsN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2PI-uo-4Ce" secondAttribute="trailing" constant="-20" id="xiO-5H-WC5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vtd-Om-xLT" secondAttribute="bottom" id="0JW-Om-C0k"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" constant="49" id="46b-uu-GVM"/>
+                            <constraint firstItem="QjV-LB-tbB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="AIi-Jk-qds"/>
+                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Ofi-z2-mlc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QjV-LB-tbB" secondAttribute="trailing" constant="-16" id="PJp-vZ-L6Z"/>
+                            <constraint firstItem="Vtd-Om-xLT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Siz-Sb-6h1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2PI-uo-4Ce" secondAttribute="trailing" constant="-16" id="XC4-tg-W02"/>
+                            <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="a5O-Ru-gIg"/>
+                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="c4s-SV-RQ7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vtd-Om-xLT" secondAttribute="trailing" constant="-16" id="fin-aX-9Wi"/>
+                            <constraint firstItem="QjV-LB-tbB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="noI-CK-ItX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7SS-De-EgM" secondAttribute="trailing" constant="-16" id="pIa-ot-s9L"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cameraButton" destination="QjV-LB-tbB" id="7ye-tV-pwg"/>
                         <outlet property="imaegView" destination="2PI-uo-4Ce" id="SEL-qu-cAi"/>
