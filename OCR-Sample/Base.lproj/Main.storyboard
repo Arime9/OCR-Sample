@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -17,29 +19,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2PI-uo-4Ce" secondAttribute="height" multiplier="3:2" id="BDS-fd-Mdx"/>
+                                </constraints>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7SS-De-EgM">
                                 <rect key="frame" x="0.0" y="400" width="600" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="M55-R3-Mzw"/>
+                                    <constraint firstAttribute="width" secondItem="7SS-De-EgM" secondAttribute="height" multiplier="3:1" id="3ak-df-nK8"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7SS-De-EgM" firstAttribute="top" secondItem="2PI-uo-4Ce" secondAttribute="bottom" id="0V0-CV-5fb"/>
-                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I9d-bj-a2r"/>
-                            <constraint firstItem="7SS-De-EgM" firstAttribute="trailing" secondItem="2PI-uo-4Ce" secondAttribute="trailing" id="IcA-fk-BNI"/>
-                            <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="2PI-uo-4Ce" secondAttribute="leading" id="Mqu-FZ-x5u"/>
-                            <constraint firstAttribute="trailing" secondItem="7SS-De-EgM" secondAttribute="trailing" id="YE9-hf-36H"/>
-                            <constraint firstItem="7SS-De-EgM" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="bd9-YY-Cla"/>
-                            <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h4L-4D-3p2"/>
+                            <constraint firstItem="7SS-De-EgM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4Ur-9v-Jzh"/>
+                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="ACM-1l-8vq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" id="V0p-97-XHq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2PI-uo-4Ce" secondAttribute="trailing" constant="-20" id="Z8O-Vh-pRW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7SS-De-EgM" secondAttribute="trailing" constant="-20" id="ahV-HP-vk6"/>
+                            <constraint firstItem="2PI-uo-4Ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="pXH-p7-DaW"/>
                         </constraints>
                     </view>
                     <connections>
