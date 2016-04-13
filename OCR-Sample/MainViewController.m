@@ -146,4 +146,44 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
     });
 }
 
+- (void)recognizeAtImage:(UIImage *)image {
+    
+}
+
+- (UIImage *)detectTextImageWithImage:(UIImage *)image {
+    CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
+    
+    CIDetector *icDetector = [CIDetector detectorOfType:CIDetectorTypeText context:nil options:nil];
+    NSArray *features = [icDetector featuresInImage:ciImage options:@{CIDetectorReturnSubFeatures: @YES}];
+    
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    
+    for (CITextFeature *feature in features) {
+        CGContextRef drawContext = UIGraphicsGetCurrentContext();
+        CGContextSetLineWidth(drawContext, 3.f);
+        
+        // Y座標が逆になるので変換
+        CGRect textRext = feature.bounds;
+        textRext.origin.y = image.size.height - (textRext.origin.y + textRext.size.height);
+        
+        // 線でテキストを囲む
+        CGContextSetStrokeColorWithColor(drawContext, [UIColor blueColor].CGColor);
+        CGContextStrokeRect(drawContext, textRext);
+        
+        // subFeaturesのチェック
+        CGContextSetStrokeColorWithColor(drawContext, [UIColor greenColor].CGColor);
+        for (CITextFeature *subFeature in feature.subFeatures) {
+            CGRect subTextRext = subFeature.bounds;
+            subTextRext.origin.y = image.size.height - (subTextRext.origin.y + subTextRext.size.height);
+            CGContextStrokeRect(drawContext, subTextRext);
+        }
+    }
+    
+    UIImage *drawedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return drawedImage;
+}
+
 @end
