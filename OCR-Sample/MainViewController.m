@@ -50,6 +50,7 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
     self.languagesTabBar.tag = 1;
     self.languagesTabBar.hidden = YES;
     
+    self.OCRTabBar.selectedItem = self.OCRTabBar.items[0];
     self.OCRTabBar.delegate = self;
     self.OCRTabBar.tag = 2;
 }
