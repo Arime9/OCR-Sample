@@ -7,8 +7,9 @@
 //
 
 #import "MainViewController.h"
+#import <TesseractOCR/TesseractOCR.h>
 
-@interface MainViewController () <UIImagePickerControllerDelegate>
+@interface MainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITabBarDelegate>
 
 @end
 
@@ -65,20 +66,46 @@
 
 
 - (IBAction)cameraButtonDidTouch:(id)sender {
+    UIImagePickerController *imagePickerC = [UIImagePickerController new];
+    imagePickerC.delegate = self;
+    imagePickerC.allowsEditing = YES;
+    if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]) {
+        imagePickerC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePickerC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    }
+    [self presentViewController:imagePickerC animated:YES completion:nil];
 }
 
 #pragma mark
 #pragma mark <UIImagePickerControllerDelegate>
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
+    UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.imaegView.image = editedImage;
+    self.textView.text = nil;
+    [self dismissViewControllerAnimated:YES completion:^{
+        // TODO: a
+    }];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
+}
+
+#pragma mark
+#pragma mark <UITabBarDelegate>
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    // TODO: a
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:@"jpn"];
+        tesseract.image = self.imaegView.image;
+        [tesseract recognize];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.textView.text = tesseract.recognizedText;
+        });
+    });
 }
 
 @end
