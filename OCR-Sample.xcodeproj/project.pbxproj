@@ -15,6 +15,7 @@
 		2699D0BA1CBDF13800C86CD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2699D0B81CBDF13800C86CD3 /* LaunchScreen.storyboard */; };
 		2699D0C51CBDF13800C86CD3 /* OCR_SampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699D0C41CBDF13800C86CD3 /* OCR_SampleTests.m */; };
 		2699D0D01CBDF13800C86CD3 /* OCR_SampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2699D0CF1CBDF13800C86CD3 /* OCR_SampleUITests.m */; };
+		2699D0F31CBE237E00C86CD3 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 2699D0F21CBE237E00C86CD3 /* tessdata */; };
 		6B9082484582368444F06A3C /* libPods-OCR-Sample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5203D881EA72FC0950F680 /* libPods-OCR-Sample.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		2699D0CB1CBDF13800C86CD3 /* OCR-SampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OCR-SampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2699D0CF1CBDF13800C86CD3 /* OCR_SampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCR_SampleUITests.m; sourceTree = "<group>"; };
 		2699D0D11CBDF13800C86CD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2699D0F21CBE237E00C86CD3 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		3D222B7C21C9579A704D7FF8 /* Pods-OCR-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCR-Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCR-Sample/Pods-OCR-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		CC5203D881EA72FC0950F680 /* libPods-OCR-Sample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCR-Sample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				2699D0B11CBDF13800C86CD3 /* MainViewController.m */,
 				2699D0B61CBDF13800C86CD3 /* Assets.xcassets */,
 				2699D0B81CBDF13800C86CD3 /* LaunchScreen.storyboard */,
+				2699D0F21CBE237E00C86CD3 /* tessdata */,
 				2699D0BB1CBDF13800C86CD3 /* Info.plist */,
 				2699D0AA1CBDF13800C86CD3 /* Supporting Files */,
 			);
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2699D0BA1CBDF13800C86CD3 /* LaunchScreen.storyboard in Resources */,
+				2699D0F31CBE237E00C86CD3 /* tessdata in Resources */,
 				2699D0B71CBDF13800C86CD3 /* Assets.xcassets in Resources */,
 				2699D0B51CBDF13800C86CD3 /* Main.storyboard in Resources */,
 			);

@@ -9,6 +9,9 @@
 #import "MainViewController.h"
 #import <TesseractOCR/TesseractOCR.h>
 
+static NSString *const kG8LanguagesEnglish = @"eng";
+static NSString *const kG8LanguagesJapanese = @"jpn";
+
 @interface MainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITabBarDelegate>
 
 @end
@@ -100,12 +103,15 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     // TODO: a
+    [self.indicator startAnimating];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:@"jpn"];
+        G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:kG8LanguagesEnglish];
         tesseract.image = self.imaegView.image;
         [tesseract recognize];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.textView.text = tesseract.recognizedText;
+            [self.indicator stopAnimating];
         });
     });
 }
