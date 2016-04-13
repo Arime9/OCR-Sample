@@ -19,6 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjV-LB-tbB">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QjV-LB-tbB" secondAttribute="height" multiplier="3:2" id="gra-SG-j1k"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="cameraButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wuS-IZ-ezN"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2PI-uo-4Ce">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                                 <constraints>
@@ -52,11 +61,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Vtd-Om-xLT" secondAttribute="trailing" constant="-20" id="jNS-XY-zBp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7SS-De-EgM" secondAttribute="bottom" constant="49" id="m0A-le-diO"/>
                             <constraint firstItem="2PI-uo-4Ce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="s90-aV-62w"/>
+                            <constraint firstItem="QjV-LB-tbB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="uzL-6c-7c8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QjV-LB-tbB" secondAttribute="trailing" constant="-20" id="vED-av-p6V"/>
                             <constraint firstItem="Vtd-Om-xLT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wyi-sH-Ljs"/>
+                            <constraint firstItem="QjV-LB-tbB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="xHe-Cu-JsN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2PI-uo-4Ce" secondAttribute="trailing" constant="-20" id="xiO-5H-WC5"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="QjV-LB-tbB" id="7ye-tV-pwg"/>
                         <outlet property="imaegView" destination="2PI-uo-4Ce" id="SEL-qu-cAi"/>
                         <outlet property="tabBar" destination="Vtd-Om-xLT" id="MXP-jL-TAq"/>
                         <outlet property="textView" destination="7SS-De-EgM" id="Bp8-Xd-pjr"/>

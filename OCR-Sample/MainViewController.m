@@ -8,7 +8,7 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController () <UIImagePickerControllerDelegate>
 
 @end
 
@@ -61,6 +61,24 @@
 }
 
 - (void)dealloc {
+}
+
+
+- (IBAction)cameraButtonDidTouch:(id)sender {
+}
+
+#pragma mark
+#pragma mark <UIImagePickerControllerDelegate>
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
 }
 
 @end

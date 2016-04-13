@@ -10,8 +10,11 @@
 
 @interface MainViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIButton *cameraButton;
 @property (nonatomic, weak) IBOutlet UIImageView *imaegView;
 @property (nonatomic, weak) IBOutlet UITextView *textView;
 @property (nonatomic, weak) IBOutlet UITabBar *tabBar;
+
+- (IBAction)cameraButtonDidTouch:(id)sender;
 
 @end
