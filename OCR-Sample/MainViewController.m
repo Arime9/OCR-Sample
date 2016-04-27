@@ -203,15 +203,17 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
         CGRect textRext = feature.bounds;
         textRext.origin.y = image.size.height - (textRext.origin.y + textRext.size.height);
         
-        // 線でテキストを囲む
-        CGContextSetStrokeColorWithColor(drawContext, [UIColor blueColor].CGColor);
+        // 線で文字列を囲む
+        CGContextSetStrokeColorWithColor(drawContext, [[UIColor blueColor] colorWithAlphaComponent:0.4].CGColor);
         CGContextStrokeRect(drawContext, textRext);
         
-        // subFeaturesのチェック
-        CGContextSetStrokeColorWithColor(drawContext, [UIColor greenColor].CGColor);
+        // 線で文字を囲む
+        CGContextSetStrokeColorWithColor(drawContext, [[UIColor grayColor] colorWithAlphaComponent:0.4].CGColor);
         for (CITextFeature *subFeature in feature.subFeatures) {
+            // Y座標が逆になるので変換
             CGRect subTextRext = subFeature.bounds;
             subTextRext.origin.y = image.size.height - (subTextRext.origin.y + subTextRext.size.height);
+            
             CGContextStrokeRect(drawContext, subTextRext);
         }
     }
