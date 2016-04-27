@@ -82,15 +82,29 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
 
 
 - (IBAction)cameraButtonDidTouch:(id)sender {
-    UIImagePickerController *imagePickerC = [UIImagePickerController new];
-    imagePickerC.delegate = self;
-    imagePickerC.allowsEditing = YES;
+    UIImagePickerController *imagePicker = [UIImagePickerController new];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
     if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]) {
-        imagePickerC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select Image" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:imagePicker animated:YES completion:nil];
+        }];
+        UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:imagePicker animated:YES completion:nil];
+        }];
+        
+        [alert addAction:cameraAction];
+        [alert addAction:libraryAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
     } else {
-        imagePickerC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePicker animated:YES completion:nil];
     }
-    [self presentViewController:imagePickerC animated:YES completion:nil];
 }
 
 #pragma mark
