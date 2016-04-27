@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, G8Languages) {
 @property (nonatomic, weak) IBOutlet UITextView *textView;
 @property (nonatomic, weak) IBOutlet UITabBar *OCRTabBar;
 
+@property (nonatomic, strong) UIImage *selectedImage;
+@property (nonatomic, strong) UIImage *detectedImage;
+
 - (IBAction)cameraButtonDidTouch:(id)sender;
 
 @end

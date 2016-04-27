@@ -53,6 +53,8 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
     self.OCRTabBar.selectedItem = self.OCRTabBar.items[0];
     self.OCRTabBar.delegate = self;
     self.OCRTabBar.tag = 2;
+    
+    self.selectedImage = self.imaegView.image;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -95,8 +97,9 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
 #pragma mark <UIImagePickerControllerDelegate>
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.imaegView.image = editedImage;
+    self.selectedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.detectedImage = [self detectTextImageWithImage:self.selectedImage];
+    self.imaegView.image = self.detectedImage;
     self.textView.text = nil;
     [self dismissViewControllerAnimated:YES completion:^{
         [self recognize];
@@ -136,7 +139,7 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
         }
         
         G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:languagesKey];
-        tesseract.image = self.imaegView.image;
+        tesseract.image = self.selectedImage;
         [tesseract recognize];
         
         dispatch_async(dispatch_get_main_queue(), ^{
