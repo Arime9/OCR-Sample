@@ -124,26 +124,7 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
         self.detectedImage = [self detectTextImageWithImage:self.selectedImage];
         
         // 文字列の取得
-        G8Languages languages = self.languagesTabBar.selectedItem.tag;
-        NSString *languagesKey;
-        switch (languages) {
-            case G8LanguagesChi_sim:
-                languagesKey = kG8LanguagesKeyChi_sim;
-                break;
-            case G8LanguagesChi_tra:
-                languagesKey = kG8LanguagesKeyChi_tra;
-                break;
-            case G8LanguagesEnglish:
-                languagesKey = kG8LanguagesKeyEnglish;
-                break;
-            case G8LanguagesJapanese:
-                languagesKey = kG8LanguagesKeyJapanese;
-                break;
-        }
-        
-        G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:languagesKey];
-        tesseract.image = self.selectedImage;
-        [tesseract recognize];
+        G8Tesseract *tesseract = [self tesseractWithLanguage:self.selectedlanguagesKey image:self.selectedImage];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // 着色画像の反映
@@ -156,8 +137,33 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
     });
 }
 
-- (void)recognizeAtImage:(UIImage *)image {
+- (NSString *)selectedlanguagesKey {
+    G8Languages languages = self.languagesTabBar.selectedItem.tag;
+    NSString *languagesKey;
+    switch (languages) {
+        case G8LanguagesChi_sim:
+            languagesKey = kG8LanguagesKeyChi_sim;
+            break;
+        case G8LanguagesChi_tra:
+            languagesKey = kG8LanguagesKeyChi_tra;
+            break;
+        case G8LanguagesEnglish:
+            languagesKey = kG8LanguagesKeyEnglish;
+            break;
+        case G8LanguagesJapanese:
+            languagesKey = kG8LanguagesKeyJapanese;
+            break;
+    }
     
+    return languagesKey;
+}
+
+- (G8Tesseract *)tesseractWithLanguage:(NSString *)language image:(UIImage *)image {
+    G8Tesseract *tesseract = [[G8Tesseract alloc] initWithLanguage:language];
+    tesseract.image = image;
+    [tesseract recognize];
+    
+    return tesseract;
 }
 
 - (UIImage *)detectTextImageWithImage:(UIImage *)image {

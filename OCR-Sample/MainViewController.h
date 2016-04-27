@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, G8Languages) {
 
 @property (nonatomic, strong) UIImage *selectedImage;
 @property (nonatomic, strong) UIImage *detectedImage;
+@property (nonatomic, strong) NSString *selectedlanguagesKey;
 
 - (IBAction)cameraButtonDidTouch:(id)sender;
 

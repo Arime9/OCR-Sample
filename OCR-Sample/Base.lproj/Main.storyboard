@@ -47,7 +47,7 @@
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bC8-IW-FHE">
                                 <rect key="frame" x="142" y="190" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.038455112941581326" blue="0.63765802866443777" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.040997815349544074" green="0.96179236322188455" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7SS-De-EgM">
                                 <rect key="frame" x="0.0" y="369" width="320" height="150"/>
