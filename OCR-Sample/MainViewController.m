@@ -123,15 +123,18 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
         // 文字列の検出と着色
         self.detectedImage = [self detectTextImageWithImage:self.selectedImage];
         
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imaegView.image = self.detectedImage;
+        });
+        
         // 文字列の取得
         G8Tesseract *tesseract = [self tesseractWithLanguage:self.selectedlanguagesKey image:self.selectedImage];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            // 着色画像の反映
-            self.imaegView.image = self.detectedImage;
-            // 文字列の反映
             self.textView.text = tesseract.recognizedText;
-            
+        });
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.indicator stopAnimating];
         });
     });
