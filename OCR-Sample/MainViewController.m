@@ -96,9 +96,12 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:imagePicker animated:YES completion:nil];
         }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }];
         
         [alert addAction:cameraAction];
         [alert addAction:libraryAction];
+        [alert addAction:cancelAction];
         
         [self presentViewController:alert animated:YES completion:nil];
     } else {
