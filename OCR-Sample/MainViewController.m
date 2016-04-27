@@ -98,11 +98,10 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     self.selectedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.detectedImage = [self detectTextImageWithImage:self.selectedImage];
-    self.imaegView.image = self.detectedImage;
+    self.imaegView.image = self.selectedImage;
     self.textView.text = nil;
     [self dismissViewControllerAnimated:YES completion:^{
-        [self recognize];
+        [self detectAndRecognize];
     }];
 }
 
@@ -114,13 +113,17 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
 #pragma mark <UITabBarDelegate>
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    [self recognize];
+    [self detectAndRecognize];
 }
 
-- (void)recognize {
+- (void)detectAndRecognize {
     [self.indicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        // 文字列の検出と着色
+        self.detectedImage = [self detectTextImageWithImage:self.selectedImage];
+        
+        // 文字列の取得
         G8Languages languages = self.languagesTabBar.selectedItem.tag;
         NSString *languagesKey;
         switch (languages) {
@@ -143,7 +146,11 @@ static NSString *const kG8LanguagesKeyJapanese = @"jpn";
         [tesseract recognize];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            // 着色画像の反映
+            self.imaegView.image = self.detectedImage;
+            // 文字列の反映
             self.textView.text = tesseract.recognizedText;
+            
             [self.indicator stopAnimating];
         });
     });
